@@ -91,7 +91,7 @@ input::-moz-focus-inner {
 }
 
 	::selection {
-		color:#fff;
+		color:rgb(99, 52, 52);
 		text-shadow:none;
 		background: #333;
 	}
@@ -13067,7 +13067,7 @@ form div.row:last-child {
 form>select,
 form>input,
 form>textarea {
-	margin-bottom:8px;
+	margin-bottom:0px;
 }
 
 input.err,

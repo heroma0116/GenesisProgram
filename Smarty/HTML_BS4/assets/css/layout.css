@@ -415,7 +415,7 @@ section .input-group-btn button.btn-default {
 }
 	section.dark .form-control {
 		border-color: #666;
-		background-color: rgba(255,255,255,0.05);
+		background-color: white;
 		outline: none;
 	}
 	section.dark .form-control:focus {
@@ -436,7 +436,7 @@ section .input-group-btn button.btn-default {
 section.dark input, 
 section.dark select, 
 section.dark textarea { 
-	color:#fff;
+	color:rgb(0, 0, 0);
 }
 section.dark .btn {
 	color:#fff;
@@ -1056,7 +1056,7 @@ section.page-header {
 		background-color:#292e32 !important;
 	}
 	section.light.page-header {
-		color:#151515;
+		color:#faf9f9;
 		background-color:transparent;
 		border-top: rgba(0,0,0,0.05) 1px solid;
 		
@@ -1318,7 +1318,7 @@ section.dark.page-header ul.page-options a {
 	left:0; top:0; right:0;
 	z-index:1000;
 	font-size:14px;
-	background-color:#fff;
+	background-color:rgb(248, 246, 246);
 	border-bottom: rgba(0,0,0,0.05) 1px solid;
 
 	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.1) !important;
@@ -2447,11 +2447,11 @@ body.menu-vertical #mainMenu.sidebar-vertical .navbar-collapse>ul.nav.navbar-nav
 		background-color:#333;
 	}
 	#header.dark #topMain.nav-pills>li>a {
-		color:#ccc;
+		color:rgb(255, 255, 255);
 	}
 	#header.dark #topMain.nav-pills>li.active>a,
 	#header.dark #topMain.nav-pills>li>a:hover {
-		color:#fff;
+		color:rgb(34, 129, 207);
 	}
 	
 	/* DARK CART & SEARCH */
@@ -5448,7 +5448,11 @@ section.page-header * {
     padding-top: 10px !important;
     padding-bottom: 10px!important;
     font-size: 18px !important;
-    line-height: 1.3333333 !important;
+	line-height: 1.3333333 !important;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .btn {
@@ -7351,8 +7355,8 @@ section#slider:not(.custom-form) .btn-default {
 	#slider:not(.custom-form) .btn-default,
 	.slider .btn-default {
 		color:#fff;
-		background-color:transparent;
-		border-color:#fff;
+		background-color:blue;
+		border-color:none;
 		border-width:2px;
 	}
 	#slider:not(.custom-form) .btn-default:hover,
