@@ -18,7 +18,62 @@
              totalPrice = costOfElevators + installationFee
 ******************************************************************* **/
 
+var residentialForm = document.getElementById('resForm');
 
+residentialForm.addEventListener('submit', function(evt) {
+  evt.preventDefault();
+
+  
+  var numApartments = parseInt(document.getElementById('renoa').value);
+  var numFloors = parseInt(document.getElementById('renof').value);
+  
+  
+  
+  var avgApartments = numApartments / numFloors;
+
+    
+  var numberOfElevatorsRes = Math.round(avgApartments / 6);
+
+  var typeOfServiceValueRes = getTypeOfServiceValueRes('optradio1');
+  var percentageOfServiceRes = getPercentageOfServiceRes(typeOfServiceValueRes);
+  
+  
+  var costOfElevatorsRes = numberOfElevatorsRes * typeOfServiceValueRes;  
+  var installationFeeRes = typeOfServiceValueRes * percentageOfServiceRes;
+  installationFeeRes = Math.round((installationFeeRes + Number.EPSILON) * 100) / 100;
+  var totalPriceRes = costOfElevatorsRes + installationFeeRes;  
+    
+
+  var numberOfElevatorsFieldRes = document.getElementById('required-elevator-residential');
+  numberOfElevatorsFieldRes.value = numberOfElevatorsRes;
+  
+  var typeOfServiceValueFieldRes = document.getElementById('cost-per-elevator-residential');
+  typeOfServiceValueFieldRes.value = typeOfServiceValueRes;
+  
+  var costOfInstallationFieldRes = document.getElementById('cost-of-installation-residential');
+  costOfInstallationFieldRes.value = installationFeeRes;
+  
+  var totalPriceFieldRes = document.getElementById('total-price-residential');
+  totalPriceFieldRes.value = totalPriceRes;
+})
+
+function getTypeOfServiceValueRes(radioName) {
+  var typeOfServicesRes = document.getElementsByName(radioName);
+  for(var i = 0;i<typeOfServicesRes.length;i++){
+    var radioInput = typeOfServicesRes[i];
+    if(radioInput.checked) return parseInt(radioInput.value);
+  }
+}
+
+function getPercentageOfServiceRes(typeOfServiceValueRes) {
+  if (typeOfServiceValueRes === 7565) {
+    return 0.10;
+  } else if(typeOfServiceValueRes === 12345) {
+    return 0.13;
+  } else {
+    return 0.16;
+  }
+} 
 
 
 
@@ -165,7 +220,7 @@ hybridForm.addEventListener('submit', function(evt) {
   var totalNumFloorsHy = numFloorsHy + numBasementsHy;
   var avgOccupantsHy = maxOccupantsHy * totalNumFloorsHy;    
   var numberOfElevatorsHy = Math.round(avgOccupantsHy / 1000);
-  console.log(numberOfElevatorsHy);
+  
   
   var costOfElevatorsHy = numberOfElevatorsHy * typeOfServiceValueHy;  
   var installationFeeHy = typeOfServiceValueHy * percentageOfServiceHy;
@@ -173,8 +228,8 @@ hybridForm.addEventListener('submit', function(evt) {
   var totalPriceHy = costOfElevatorsHy + installationFeeHy;  
     
 
-  var numberOfElevatorsFieldHy = document.getElementById('required-elevator-hybrid');
-  numberOfElevatorsFieldHy.value = numberOfElevatorsHy;
+  var numberOfHybrid = document.getElementById('required-elevator-hybrid');
+  numberOfHybrid.value = numberOfElevatorsHy;
   
   var typeOfServiceValueFieldHy = document.getElementById('cost-per-elevator-hybrid');
   typeOfServiceValueFieldHy.value = typeOfServiceValueHy;
@@ -202,4 +257,4 @@ function getPercentageOfServiceHy(typeOfServiceValueHy) {
   } else {
     return 0.16;
   }
-}  
+}
