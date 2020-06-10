@@ -23,20 +23,16 @@ var residentialForm = document.getElementById('resForm');
 residentialForm.addEventListener('submit', function(evt) {
   evt.preventDefault();
 
-  
-  var numApartments = parseInt(document.getElementById('renoa').value);
-  var numFloors = parseInt(document.getElementById('renof').value);
-  
-  
-  
-  var avgApartments = numApartments / numFloors;
-
-    
-  var numberOfElevatorsRes = Math.round(avgApartments / 6);
-
   var typeOfServiceValueRes = getTypeOfServiceValueRes('optradio1');
   var percentageOfServiceRes = getPercentageOfServiceRes(typeOfServiceValueRes);
+  var numApartments = parseInt(document.getElementById('renoa').value);
+  var numFloors = parseInt(document.getElementById('renof').value);
+  var avgApartments = numApartments / numFloors;
+  var numberOfElevatorsRes = Math.round(avgApartments / 6);
+
+
   
+  console.log(typeOfServiceValueRes);
   
   var costOfElevatorsRes = numberOfElevatorsRes * typeOfServiceValueRes;  
   var installationFeeRes = typeOfServiceValueRes * percentageOfServiceRes;
@@ -47,8 +43,8 @@ residentialForm.addEventListener('submit', function(evt) {
   var numberOfElevatorsFieldRes = document.getElementById('required-elevator-residential');
   numberOfElevatorsFieldRes.value = numberOfElevatorsRes;
   
-  var typeOfServiceValueFieldRes = document.getElementById('cost-per-elevator-residential');
-  typeOfServiceValueFieldRes.value = typeOfServiceValueRes;
+  var costOfElevatorFieldRes = document.getElementById('cost-per-elevator-residential');
+  costOfElevatorFieldRes.value = costOfElevatorsRes;
   
   var costOfInstallationFieldRes = document.getElementById('cost-of-installation-residential');
   costOfInstallationFieldRes.value = installationFeeRes;
