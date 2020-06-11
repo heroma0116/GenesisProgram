@@ -170,7 +170,7 @@ corporateForm.addEventListener('submit', function(evt) {
 
   var totalNumFloorsCor = numFloorsCor + numBasementsCor;
   var avgOccupantsCor = maxOccupantsCor * totalNumFloorsCor;    
-  var numberOfElevatorsCor = Math.round(avgOccupantsCor / 1000);
+  var numberOfElevatorsCor = Math.ceil(avgOccupantsCor / 1000);
   
   
   var costOfElevatorsCor = numberOfElevatorsCor * typeOfServiceValueCor;  
@@ -237,7 +237,7 @@ hybridForm.addEventListener('submit', function(evt) {
 
   var totalNumFloorsHy = numFloorsHy + numBasementsHy;
   var avgOccupantsHy = maxOccupantsHy * totalNumFloorsHy;    
-  var numberOfElevatorsHy = Math.round(avgOccupantsHy / 1000);
+  var numberOfElevatorsHy = Math.ceil(avgOccupantsHy / 1000);
   
   
   var costOfElevatorsHy = numberOfElevatorsHy * typeOfServiceValueHy;  
