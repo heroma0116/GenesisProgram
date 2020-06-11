@@ -75,28 +75,17 @@ function getPercentageOfServiceRes(typeOfServiceValueRes) {
   }
 } 
 
-function getPercentageOfServiceRes(typeOfServiceValueRes) {
-  if (typeOfServiceValueRes === 7565) {
-    return 0.10;
-  } else if(typeOfServiceValueRes === 12345) {
-    return 0.13;
-  } else {
-    return 0.16;
-  }
-} 
-
 function getAddElevator(numFloors) {
-  if (numFloors > 40) {
+  if (numFloors > 41 ) {
     return 2;
   }
-  if (numFloors > 20) {
+  else if (numFloors > 20) {
     return 1;
   }
-  if (numFloors <= 20) {
+  if (numFloors > 1){
     return 0;
-  }
-}
-    
+  } 
+}   
  
 
 
