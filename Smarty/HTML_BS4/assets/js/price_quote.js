@@ -92,6 +92,9 @@ function getAddElevator(numFloors) {
   if (numFloors > 20) {
     return 1;
   }
+  if (numFloors <= 20) {
+    return 0;
+  }
 }
     
  
