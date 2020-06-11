@@ -25,14 +25,18 @@ residentialForm.addEventListener('submit', function(evt) {
 
   var typeOfServiceValueRes = getTypeOfServiceValueRes('optradio1');
   var percentageOfServiceRes = getPercentageOfServiceRes(typeOfServiceValueRes);
+  
+  
   var numApartments = parseInt(document.getElementById('renoa').value);
   var numFloors = parseInt(document.getElementById('renof').value);
+  
   var avgApartments = numApartments / numFloors;
-  var numberOfElevatorsRes = Math.round(avgApartments / 6);
+  var addElevator = getAddElevator(numFloors);
+  var numberOfElevatorsRes = Math.ceil(avgApartments / 6) + addElevator;
 
 
   
-  console.log(typeOfServiceValueRes);
+  console.log(addElevator);
   
   var costOfElevatorsRes = numberOfElevatorsRes * typeOfServiceValueRes;  
   var installationFeeRes = typeOfServiceValueRes * percentageOfServiceRes;
@@ -71,9 +75,26 @@ function getPercentageOfServiceRes(typeOfServiceValueRes) {
   }
 } 
 
+function getPercentageOfServiceRes(typeOfServiceValueRes) {
+  if (typeOfServiceValueRes === 7565) {
+    return 0.10;
+  } else if(typeOfServiceValueRes === 12345) {
+    return 0.13;
+  } else {
+    return 0.16;
+  }
+} 
 
-
-
+function getAddElevator(numFloors) {
+  if (numFloors > 40) {
+    return 2;
+  }
+  if (numFloors > 20) {
+    return 1;
+  }
+}
+    
+ 
 
 
 /** ************* For commercial buildings computation ****************** **
