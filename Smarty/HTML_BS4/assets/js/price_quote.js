@@ -93,6 +93,7 @@ commercialForm.addEventListener('submit', function(evt) {
   var costOfElevators = numberOfElevators * typeOfServiceValue;
   
   var installationFee = typeOfServiceValue * percentageOfService;
+  installationFee = Math.round((installationFee + Number.EPSILON) * 100) / 100;
   var totalPrice = costOfElevators + installationFee;
   
   var typeOfServiceValueField = document.getElementById('cost-per-elevator-commercial');
